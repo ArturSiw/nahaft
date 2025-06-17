@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NA Haft Studio – Realizacje</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-placeholder").innerHTML = html);
+  </script>
+  <main>
+    <section class="hero">
+      <h1 class="section-title">Nasze realizacje</h1>
+      <p class="lead">Zobacz wybrane projekty, które zrealizowaliśmy dla klientów indywidualnych i firm.</p>
+    </section>
+    <section class="gallery">
+      <div class="gallery-grid">
+        <img src="sample1.jpg" alt="Realizacja 1">
+        <img src="sample2.jpg" alt="Realizacja 2">
+        <img src="sample1.jpg" alt="Realizacja 3">
+        <img src="sample2.jpg" alt="Realizacja 4">
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 NA Haft Studio · <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a></p>
+  </footer>
+</body>
+</html>

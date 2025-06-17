@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NA Haft Studio – Oferta</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-placeholder").innerHTML = html);
+  </script>
+  <main>
+    <section class="hero">
+      <h1 class="section-title">Nasza oferta</h1>
+      <p class="lead">Świadczymy usługi haftu komputerowego na najwyższym poziomie. Haftujemy na odzieży, ręcznikach, torbach, kocach i wielu innych materiałach.</p>
+    </section>
+    <section class="offer-list">
+      <ul>
+        <li><strong>Haft na zamówienie:</strong> Twój pomysł, nasze wykonanie – haftujemy logo, napisy, grafiki.</li>
+        <li><strong>Personalizacja prezentów:</strong> Imiona, daty, dedykacje na kocykach, bluzach i nie tylko.</li>
+        <li><strong>Współpraca B2B:</strong> Odzież robocza, hafty firmowe, hurtowe zamówienia z rabatem.</li>
+        <li><strong>Indywidualna wycena:</strong> Skontaktuj się z nami – każda realizacja jest inna!</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 NA Haft Studio · <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a></p>
+  </footer>
+</body>
+</html>
