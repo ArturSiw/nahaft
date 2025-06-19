@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Realizacje</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
   <!-- Header include -->
@@ -15,10 +31,7 @@
       <h1 class="section-title">Nasze realizacje</h1>
       <p class="lead">Zobacz przykłady wykonanych haftów — od klasycznych logotypów po złożone projekty artystyczne.</p>
     </section>
-    <section class="gallery">
-      <img src="sample1.jpg" alt="Przykład haftu 1">
-      <img src="sample2.jpg" alt="Przykład haftu 2">
-    </section>
+    <section class="gallery" id="gallery"></section>
   </main>
 
   <footer>
@@ -31,6 +44,16 @@
       .then(data => {
         document.getElementById('header-container').innerHTML = data;
       });
+
+    // Automatyczne ładowanie zdjęć z folderu "realizacje"
+    const gallery = document.getElementById('gallery');
+    for (let i = 1; i <= 100; i++) {
+      const img = new Image();
+      img.src = `realizacje/${i}.jpg`;
+      img.alt = `Realizacja ${i}`;
+      img.onload = () => gallery.appendChild(img);
+      img.onerror = () => {};
+    }
   </script>
 </body>
 </html>
