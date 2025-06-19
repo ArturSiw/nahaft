@@ -1,17 +1,66 @@
 <header>
   <style>
+    .header-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 5px;
+    }
+
     .social-icon {
       height: 24px;
-      margin-left: 10px;
       vertical-align: middle;
     }
+
     .social-icon.square {
       width: 24px;
     }
+
     .social-icon.youtube {
+      height: 24px;
       width: auto;
     }
+
+    @media screen and (max-width: 600px) {
+      .header-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+    }
   </style>
+
   <div class="header-container">
     <a href="index.html">
       <img src="logo.png" alt="Logo" class="logo">
