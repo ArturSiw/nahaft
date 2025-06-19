@@ -4,8 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NA Haft Studio – Strona główna</title>
+  <meta name="description" content="Profesjonalny haft komputerowy, już od jednej sztuki. NA Haft Studio – jakość, precyzja, pasja. Koszulki, ręczniki, czapki, odzież i więcej.">
   <link rel="stylesheet" href="style.css">
   <style>
+    .topbar {
+      background-color: #cc0000;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .hero-section h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-bar {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .cta-bar a {
+      color: #ffd700;
+      text-decoration: underline;
+    }
+
     .about {
       display: flex;
       flex-direction: column;
@@ -55,18 +97,17 @@
     }
 
     .preview-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
       gap: 1rem;
-      justify-items: center;
     }
 
     .preview-gallery img {
-      width: 100%;
+      max-width: 300px;
       height: auto;
       border-radius: 8px;
-      object-fit: cover;
-      aspect-ratio: 4 / 3;
+      flex-shrink: 0;
     }
 
     @media (max-width: 768px) {
@@ -77,12 +118,23 @@
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <span>Zadzwoń: <a href="tel:+48500600100" style="color:#fff;">+48 500 600 100</a></span>
+    <span>Napisz: <a href="mailto:kontakt@nahaft.pl" style="color:#fff;">kontakt@nahaft.pl</a></span>
+  </div>
   <div id="header-placeholder"></div>
   <script>
     fetch("header.html")
       .then(res => res.text())
       .then(html => document.getElementById("header-placeholder").innerHTML = html);
   </script>
+  <section class="hero-section">
+    <h1>Haft z duszą. Haft z NA Haft Studio</h1>
+    <p>Od jednej sztuki, z pasją i precyzją. Sprawdź co potrafimy!</p>
+  </section>
+  <div class="cta-bar">
+    Zamów haft już od jednej sztuki – <a href="kontakt.html">Skontaktuj się z nami</a>
+  </div>
   <main>
     <section class="about">
       <div class="about-top">
@@ -122,15 +174,22 @@
   <script>
     const previewContainer = document.getElementById("gallery-preview");
     const imageCount = 12;
-    const indexes = Array.from({ length: imageCount }, (_, i) => i + 1);
-    indexes.sort(() => Math.random() - 0.5);
-    const selected = indexes.slice(0, 6);
-    selected.forEach(i => {
-      const img = document.createElement("img");
-      img.src = `realizacje/${i}.jpg`;
-      img.alt = `Realizacja ${i}`;
-      previewContainer.appendChild(img);
-    });
+    let currentIndex = 0;
+
+    function updateGallery() {
+      previewContainer.innerHTML = "";
+      for (let i = 0; i < 3; i++) {
+        const index = (currentIndex + i) % imageCount + 1;
+        const img = document.createElement("img");
+        img.src = `realizacje/${index}.jpg`;
+        img.alt = `Realizacja ${index}`;
+        previewContainer.appendChild(img);
+      }
+      currentIndex = (currentIndex + 3) % imageCount;
+    }
+
+    updateGallery();
+    setInterval(updateGallery, 4000);
   </script>
 
   <footer>
