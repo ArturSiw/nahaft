@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NA Haft Studio – Strona główna</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .about-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      flex: 1 1 60%;
+      min-width: 300px;
+    }
+
+    .about-image {
+      flex: 1 1 35%;
+      min-width: 250px;
+      max-width: 100%;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .about-flex {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="header-placeholder"></div>
