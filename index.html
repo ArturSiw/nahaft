@@ -41,6 +41,34 @@
       width: 100%;
     }
 
+    .preview-section {
+      margin-top: 4rem;
+      background: #111;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .preview-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .preview-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      justify-items: center;
+    }
+
+    .preview-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
     @media (max-width: 768px) {
       .about-top {
         flex-direction: column;
@@ -84,7 +112,27 @@
         <p><strong>Zapraszamy do kontaktu i współpracy – każde zlecenie zaczynamy od rozmowy!</strong></p>
       </div>
     </section>
+
+    <section class="preview-section">
+      <h2>Przykładowe realizacje</h2>
+      <div class="preview-gallery" id="gallery-preview"></div>
+    </section>
   </main>
+
+  <script>
+    const previewContainer = document.getElementById("gallery-preview");
+    const imageCount = 12;
+    const indexes = Array.from({ length: imageCount }, (_, i) => i + 1);
+    indexes.sort(() => Math.random() - 0.5);
+    const selected = indexes.slice(0, 6);
+    selected.forEach(i => {
+      const img = document.createElement("img");
+      img.src = `realizacje/${i}.jpg`;
+      img.alt = `Realizacja ${i}`;
+      previewContainer.appendChild(img);
+    });
+  </script>
+
   <footer>
     <p>© 2025 NA Haft Studio · <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a></p>
   </footer>
