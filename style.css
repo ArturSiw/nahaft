@@ -124,44 +124,64 @@ p {
   transform: translateY(-50%);
 }
 
-.contact-bar {
-  background-color: #c0392b;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
+/* Nagłówek */
+.header-top {
+  background-color: #e76652;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
   font-size: 14px;
 }
 
-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #000;
-  padding: 10px 20px;
+.header-top a.header-email {
+  color: white;
+  text-decoration: underline;
 }
 
-.logo img {
-  height: 50px;
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #000;
+}
+
+.logo {
+  height: 90px;
+  max-width: 100%;
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
 }
 
 nav a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 18px;
+  margin: 5px;
 }
 
-.social-icons img {
+.social-icon {
   height: 26px;
-  width: auto;
   vertical-align: middle;
+}
+
+.social-icon.square {
+  width: 26px;
+}
+
+.social-icon.youtube {
+  width: auto;
 }
 
 /* Kontakt */
@@ -214,70 +234,12 @@ button {
     padding: 0 10px;
   }
 }
-.header-top {
-  background-color: #e76652; /* Bledszy czerwony */
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 15px;
-  font-size: 14px;
-}
 
-.header-top a.header-email {
-  color: white;
-  text-decoration: underline;
-}
-
-.header-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.logo {
-  height: 130px;
-  max-width: 100%;
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
-  margin: 5px;
-}
-
-.social-icon {
-  height: 28px;
-  vertical-align: middle;
-}
-
-.social-icon.square {
-  width: 28px;
-}
-
-.social-icon.youtube {
-  height: 28px;
-  width: auto;
-}
-
-/* Responsive fix */
 @media screen and (max-width: 600px) {
   .header-container {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   nav {
@@ -287,6 +249,10 @@ nav a {
   }
 
   nav a {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .logo {
+    height: 70px;
   }
 }
