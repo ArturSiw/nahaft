@@ -1,82 +1,12 @@
 <header>
-  <style>
-    .header-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px;
-    }
-
-    .logo {
-      height: 130px;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
-      margin: 5px;
-    }
-
-    .social-icon {
-      height: 28px;
-      vertical-align: middle;
-    }
-
-    .social-icon.square {
-      width: 28px;
-    }
-
-    .social-icon.youtube {
-      height: 28px;
-      width: auto;
-    }
-
-    .contact-bar {
-      background-color: #d94d3a;
-      color: white;
-      text-align: center;
-      padding: 5px 0;
-      font-size: 14px;
-    }
-
-    @media screen and (max-width: 600px) {
-      .header-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      nav a {
-        font-size: 18px;
-      }
-    }
-  </style>
-
-  <div class="contact-bar">
-    Kontakt: <a href="mailto:nahaft.studio@gmail.com" style="color: white; text-decoration: underline;">nahaft.studio@gmail.com</a>
-  </div>
-
-  <div class="header-container">
+  <div class="header-top">
+    <div>Kontakt: <a href="mailto:nahaft.studio@gmail.com" class="header-email">nahaft.studio@gmail.com</a></div>
     <a href="index.html">
       <img src="logo.png" alt="Logo" class="logo">
     </a>
+  </div>
+
+  <div class="header-container">
     <nav>
       <a href="index.html">O nas</a>
       <a href="oferta.html">Oferta</a>
