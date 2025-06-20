@@ -62,6 +62,66 @@ p {
   width: 100%;
   height: auto;
   border-radius: 4px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.preview-gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.lightbox .close-btn, .lightbox .prev-btn, .lightbox .next-btn {
+  position: absolute;
+  top: 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.lightbox .close-btn {
+  right: 30px;
+}
+
+.lightbox .prev-btn {
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox .next-btn {
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .contact-bar {
