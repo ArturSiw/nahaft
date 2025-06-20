@@ -95,6 +95,34 @@
       display: none;
       z-index: 10000;
     }
+
+    .hero {
+      position: relative;
+      background-image: url('NA_HAFT_zblizenie.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+
+    .hero h1,
+    .hero p {
+      position: relative;
+      z-index: 2;
+    }
   </style>
 </head>
 <body>
@@ -103,6 +131,7 @@
 
   <main>
     <section class="hero">
+      <div class="overlay"></div>
       <h1 class="section-title">Nasze realizacje</h1>
       <p class="lead">Zobacz przykłady wykonanych haftów — od klasycznych logotypów po złożone projekty artystyczne.</p>
     </section>
