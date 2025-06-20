@@ -154,9 +154,13 @@ p {
   z-index: 99;
 }
 
+.logo {
+  max-width: 100%;
+}
+
 .logo img {
   height: 90px;
-  max-width: 100%;
+  display: block;
 }
 
 nav {
