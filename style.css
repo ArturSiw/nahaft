@@ -3,6 +3,8 @@ body {
   background: #111;
   color: #fff;
   font-family: Arial, sans-serif;
+  font-size: 1.1em;
+  line-height: 1.8;
 }
 
 header {
@@ -167,4 +169,20 @@ form button:hover {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+.offer-list {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.offer-list ul {
+  padding-left: 20px;
+}
+
+.offer-list li {
+  margin-bottom: 15px;
 }
