@@ -3,219 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Realizacje</title>
+  <meta name="description" content="Galeria realizacji NA Haft Studio – hafty komputerowe, logo, imiona, projekty indywidualne i firmowe.">
+  <title>Realizacje | NA Haft Studio</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 16px;
-      padding: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-    }
-
-    .lightbox-nav {
-      position: fixed;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-
-    .lightbox-nav button {
-      pointer-events: all;
-      background: none;
-      border: none;
-      font-size: 2.5rem;
-      color: white;
-      cursor: pointer;
-      padding: 10px 20px;
-    }
-
-    .lightbox-close {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-
-    #back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #444;
-      color: white;
-      padding: 10px 14px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.5rem;
-      display: none;
-      z-index: 10000;
-    }
-
-    .hero {
-      position: relative;
-      background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .hero h1,
-    .hero p {
-      position: relative;
-      z-index: 2;
-    }
-  </style>
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Header include -->
-  <div id="header-container"></div>
+  <div class="contact-bar">
+    Kontakt: <a href="mailto:nahaft.studio@gmail.com" style="color: white;">nahaft.studio@gmail.com</a>
+  </div>
+
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+  </script>
 
   <main>
-    <section class="hero">
-      <h1 class="section-title">Nasze realizacje</h1>
-      <p class="lead">Zobacz przykłady wykonanych haftów — od klasycznych logotypów po złożone projekty artystyczne.</p>
+    <section class="preview-section">
+      <h1>Nasze realizacje</h1>
+      <p>Zobacz przykłady wykonanych haftów &mdash; od klasycznych logotypów po złożone projekty artystyczne.</p>
+
+      <div class="preview-gallery">
+        <img src="realizacje/1.jpg" alt="Realizacja 1">
+        <img src="realizacje/2.jpg" alt="Realizacja 2">
+        <img src="realizacje/3.jpg" alt="Realizacja 3">
+        <img src="realizacje/4.jpg" alt="Realizacja 4">
+        <img src="realizacje/5.jpg" alt="Realizacja 5">
+        <img src="realizacje/6.jpg" alt="Realizacja 6">
+      </div>
     </section>
-    <section class="gallery" id="gallery"></section>
   </main>
 
-  <div id="back-to-top">↑</div>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="close-btn" onclick="closeLightbox()">&times;</button>
+    <button class="prev-btn" onclick="prevImage()">&#10094;</button>
+    <img src="" alt="Podgląd" id="lightbox-img">
+    <button class="next-btn" onclick="nextImage()">&#10095;</button>
+  </div>
 
-  <footer>
-    <p>© 2025 NA Haft Studio · <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a></p>
+  <footer style="text-align: center; font-size: 0.9em; margin: 2em auto;">
+    &copy; 2025 NA Haft Studio – <a href="mailto:kontakt@nahaft.pl" style="color: #ccc;">kontakt@nahaft.pl</a>
   </footer>
-
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-container').innerHTML = data;
-      });
-
-    const gallery = document.getElementById('gallery');
-    const images = [];
-
-    for (let i = 1; i <= 100; i++) {
-      const img = new Image();
-      img.src = `realizacje/${i}.jpg`;
-      img.alt = `Realizacja ${i}`;
-      img.dataset.index = i - 1;
-      img.onload = () => {
-        images[i - 1] = img.src;
-        gallery.appendChild(img);
-      };
-      img.onerror = () => {};
-    }
-
-    document.addEventListener('click', e => {
-      if (e.target.closest('#gallery img')) {
-        const index = parseInt(e.target.dataset.index);
-        openLightbox(index);
-      }
-    });
-
-    function openLightbox(index) {
-      const lightbox = document.createElement('div');
-      lightbox.className = 'lightbox';
-      lightbox.innerHTML = `
-        <button class="lightbox-close">×</button>
-        <div class="lightbox-nav">
-          <button class="prev">←</button>
-          <button class="next">→</button>
-        </div>
-        <img src="${images[index]}" alt="Realizacja">
-      `;
-
-      document.body.appendChild(lightbox);
-
-      const img = lightbox.querySelector('img');
-      const closeBtn = lightbox.querySelector('.lightbox-close');
-      const prevBtn = lightbox.querySelector('.prev');
-      const nextBtn = lightbox.querySelector('.next');
-
-      const updateImage = (newIndex) => {
-        if (newIndex >= 0 && newIndex < images.length) {
-          index = newIndex;
-          img.src = images[index];
-        }
-      };
-
-      closeBtn.onclick = () => lightbox.remove();
-      prevBtn.onclick = () => updateImage(index - 1);
-      nextBtn.onclick = () => updateImage(index + 1);
-
-      lightbox.onclick = (e) => {
-        if (e.target === lightbox) lightbox.remove();
-      };
-
-      function keyHandler(e) {
-        if (e.key === 'Escape') lightbox.remove();
-        if (e.key === 'ArrowLeft') updateImage(index - 1);
-        if (e.key === 'ArrowRight') updateImage(index + 1);
-      }
-
-      document.addEventListener('keydown', keyHandler);
-
-      lightbox.onremove = () => {
-        document.removeEventListener('keydown', keyHandler);
-      };
-    }
-
-    const backToTop = document.getElementById('back-to-top');
-
-    window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
 </body>
 </html>
