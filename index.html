@@ -1,195 +1,90 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NA Haft Studio – Strona główna</title>
-  <meta name="description" content="NA Haft Studio – haft komputerowy od jednej sztuki. Personalizowane koszulki, ręczniki, kocyki, czapki i więcej. Polska jakość, indywidualne podejście, szybka realizacja.">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .topbar {
-      background-color: #c0392b;
-      color: white;
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .hero-section {
-      text-align: center;
-      padding: 3rem 1rem;
-      background-color: #000;
-      color: #fff;
-    }
-
-    .hero-section h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-section p {
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .cta-bar {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.1rem;
-    }
-
-    .cta-bar a {
-      color: #ffd700;
-      text-decoration: underline;
-    }
-
-    .about {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .about-top {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .about-text-narrow {
-      flex: 1 1 60%;
-      min-width: 300px;
-    }
-
-    .about-image {
-      flex: 1 1 35%;
-      min-width: 250px;
-      max-width: 100%;
-    }
-
-    .about-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-    }
-
-    .about-text-full {
-      width: 100%;
-    }
-
-    .preview-section {
-      margin-top: 4rem;
-      background: #111;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .preview-section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-    }
-
-    .preview-gallery {
-      display: flex;
-      justify-content: center;
-      overflow-x: auto;
-      gap: 1rem;
-    }
-
-    .preview-gallery img {
-      max-width: 300px;
-      height: auto;
-      border-radius: 8px;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 768px) {
-      .about-top {
-        flex-direction: column;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NA Haft Studio – profesjonalny haft komputerowy. Personalizowane hafty na ubraniach, kocykach, ręcznikach i więcej. Haft od jednej sztuki.">
+  <title>NA Haft Studio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Pasek kontaktowy + nawigacja -->
   <div id="header-placeholder"></div>
   <script>
     fetch("header.html")
-      .then(res => res.text())
-      .then(html => document.getElementById("header-placeholder").innerHTML = html);
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
   </script>
-  <section class="hero-section">
-    <h1>Haft z duszą. Haft z NA Haft Studio</h1>
-    <p>Od jednej sztuki, z pasją i precyzją. Sprawdź co potrafimy!</p>
-  </section>
-  <div class="cta-bar">
-    Zamów haft już od jednej sztuki – <a href="kontakt.html">Skontaktuj się z nami</a>
-  </div>
+
   <main>
+    <section class="hero-section">
+      <h1>Witaj w NA Haft Studio</h1>
+      <p>
+        Polska, rodzinna pracownia haftu komputerowego, w której każda nić opowiada historię. Nie jesteśmy wielką fabryką, ale to właśnie nasza kameralna skala jest naszym atutem. Dzięki temu możesz liczyć na coś, czego nie oferują wielcy gracze: prawdziwie indywidualne podejście, autentyczną pasję i elastyczność, której nie znajdziesz nigdzie indziej.
+      </p>
+    </section>
+
     <section class="about">
       <div class="about-top">
         <div class="about-text-narrow">
-          <h2>Witaj w NA Haft Studio</h2>
-          <p>Polska, rodzinna pracownia haftu komputerowego, w której każda nić opowiada historię. Nie jesteśmy wielką fabryką, ale to właśnie nasza kameralna skala jest naszym atutem. Dzięki temu możesz liczyć na coś, czego nie oferują wielcy gracze: prawdziwie indywidualne podejście, autentyczną pasję i elastyczność, której nie znajdziesz nigdzie indziej.</p>
+          <p><strong>Co nas wyróżnia?</strong></p>
+          <p>
+            Brak minimalnej ilości zamówienia – chcesz jedną sztukę? Nie ma problemu. Każdy projekt traktujemy z jednakowym zaangażowaniem – niezależnie od wielkości zamówienia.
+          </p>
+          <p>
+            Haft na miarę Twoich potrzeb – wykonujemy hafty personalizowane: imiona, logo, grafiki, napisy, a także specjalne projekty na ubrania, akcesoria i tekstylia. Haftujemy na kocykach, ręcznikach, koszulkach, polarach, czapkach, workach i wielu innych materiałach.
+          </p>
+          <p>
+            Wysoka jakość bez kompromisów – pracujemy na profesjonalnych maszynach hafciarskich, korzystamy z solidnych nici i stabilizatorów, dzięki czemu haft nie tylko wygląda świetnie, ale też wytrzymuje próbę czasu i prania.
+          </p>
+          <p>
+            Doradztwo i projekt od A do Z – nie masz gotowego wzoru? Pomożemy Ci go stworzyć! Niezależnie od tego, czy to prezent, identyfikacja wizualna firmy, czy kreatywny pomysł – wspólnie stworzymy coś wyjątkowego.
+          </p>
+          <p>
+            Polska jakość, lokalna odpowiedzialność – jesteśmy firmą w 100% z polskim kapitałem. Wspierasz tym samym lokalny rynek i mały biznes, który naprawdę dba o każdego klienta.
+          </p>
         </div>
         <div class="about-image">
-          <img src="haft-photo.png" alt="Maszyna hafciarska w pracy">
+          <img src="haft-photo.png" alt="Maszyna hafciarska w pracy" />
         </div>
       </div>
+
       <div class="about-text-full">
-        <h3>Co nas wyróżnia?</h3>
-        <ul>
-          <li><strong>Brak minimalnej ilości zamówienia</strong> – chcesz jedną sztukę? Nie ma problemu. Każdy projekt traktujemy z jednakowym zaangażowaniem – niezależnie od wielkości zamówienia.</li>
-          <li><strong>Haft na miarę Twoich potrzeb</strong> – wykonujemy hafty personalizowane: imiona, logo, grafiki, napisy, a także specjalne projekty na ubrania, akcesoria i tekstylia. Haftujemy na kocykach, ręcznikach, koszulkach, polarach, czapkach, workach i wielu innych materiałach.</li>
-          <li><strong>Wysoka jakość bez kompromisów</strong> – pracujemy na profesjonalnych maszynach hafciarskich, korzystamy z solidnych nici i stabilizatorów, dzięki czemu haft nie tylko wygląda świetnie, ale też wytrzymuje próbę czasu i prania.</li>
-          <li><strong>Doradztwo i projekt od A do Z</strong> – nie masz gotowego wzoru? Pomożemy Ci go stworzyć! Niezależnie od tego, czy to prezent, identyfikacja wizualna firmy, czy kreatywny pomysł – wspólnie stworzymy coś wyjątkowego.</li>
-          <li><strong>Polska jakość, lokalna odpowiedzialność</strong> – jesteśmy firmą w 100% z polskim kapitałem. Wspierasz tym samym lokalny rynek i mały biznes, który naprawdę dba o każdego klienta.</li>
-        </ul>
-        <h3>Dla kogo jesteśmy?</h3>
-        <p>Dla każdego! Współpracujemy zarówno z osobami prywatnymi, jak i z firmami, przedszkolami, szkołami, instytucjami i rękodzielnikami. Szukasz wyjątkowego haftu na prezent? Chcesz oznakować ubrania firmowe? A może masz własną markę i chcesz stworzyć serię personalizowanych produktów? Świetnie trafiłeś.</p>
-        <h3>Szybko, sprawnie i... z sercem</h3>
-        <p>U nas nie czekasz tygodniami. Zlecenia realizujemy terminowo i z pełnym zaangażowaniem. Każdy haft przechodzi kontrolę jakości, a kontakt z nami jest szybki, miły i konkretny – bo po drugiej stronie czekają ludzie z pasją, nie automatyczne systemy.</p>
-        <h3>Zaufaj rodzinnej marce tworzonej z myślą o Tobie</h3>
-        <p>W NA Haft Studio stawiamy na relacje i jakość. Nie jesteśmy tylko miejscem, które „robi hafty” – jesteśmy partnerem, który pomoże Ci wyróżnić się, ucieszyć kogoś bliskiego albo zrealizować swój własny pomysł. Sprawdź naszą ofertę i dołącz do grona zadowolonych klientów.</p>
-        <p><strong>Zapraszamy do kontaktu i współpracy – każde zlecenie zaczynamy od rozmowy!</strong></p>
+        <p><strong>Dla kogo jesteśmy?</strong></p>
+        <p>
+          Dla każdego! Współpracujemy zarówno z osobami prywatnymi, jak i z firmami, przedszkolami, szkołami, instytucjami i rękodzielnikami. Szukasz wyjątkowego haftu na prezent? Chcesz oznakować ubrania firmowe? A może masz własną markę i chcesz stworzyć serię personalizowanych produktów? Świetnie trafiłeś.
+        </p>
+        <p><strong>Szybko, sprawnie i... z sercem</strong></p>
+        <p>
+          U nas nie czekasz tygodniami. Zlecenia realizujemy terminowo i z pełnym zaangażowaniem. Każdy haft przechodzi kontrolę jakości, a kontakt z nami jest szybki, miły i konkretny – bo po drugiej stronie czekają ludzie z pasją, nie automatyczne systemy.
+        </p>
+        <p><strong>Zaufaj rodzinnej marce tworzonej z myślą o Tobie</strong></p>
+        <p>
+          W NA Haft Studio stawiamy na relacje i jakość. Nie jesteśmy tylko miejscem, które „robi hafty” – jesteśmy partnerem, który pomoże Ci wyróżnić się, ucieszyć kogoś bliskiego albo zrealizować swój własny pomysł. Sprawdź naszą ofertę i dołącz do grona zadowolonych klientów.
+        </p>
+        <p>
+          Zapraszamy do kontaktu i współpracy – każde zlecenie zaczynamy od rozmowy!
+        </p>
       </div>
     </section>
 
     <section class="preview-section">
       <h2>Przykładowe realizacje</h2>
-      <div class="preview-gallery" id="gallery-preview"></div>
+      <div class="preview-gallery" id="preview-gallery"></div>
     </section>
   </main>
 
   <script>
-    const previewContainer = document.getElementById("gallery-preview");
-    const imageCount = 12;
-    let currentIndex = 0;
-
-    function updateGallery() {
-      previewContainer.innerHTML = "";
-      for (let i = 0; i < 3; i++) {
-        const index = (currentIndex + i) % imageCount + 1;
-        const img = document.createElement("img");
-        img.src = `realizacje/${index}.jpg`;
-        img.alt = `Realizacja ${index}`;
-        previewContainer.appendChild(img);
-      }
-      currentIndex = (currentIndex + 3) % imageCount;
+    const gallery = document.getElementById("preview-gallery");
+    const imageCount = 10;
+    for (let i = 1; i <= imageCount; i++) {
+      const img = document.createElement("img");
+      img.src = `realizacje/${i}.jpg`;
+      img.alt = `Realizacja ${i}`;
+      gallery.appendChild(img);
     }
-
-    updateGallery();
-    setInterval(updateGallery, 4000);
   </script>
-
-  <footer>
-    <p>© 2025 NA Haft Studio · <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a></p>
-  </footer>
 </body>
 </html>
