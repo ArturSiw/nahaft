@@ -1,44 +1,32 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NA Haft Studio – Kontakt</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt | NA Haft Studio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="header-placeholder"></div>
   <script>
     fetch("header.html")
-      .then(res => res.text())
-      .then(html => document.getElementById("header-placeholder").innerHTML = html);
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
   </script>
+
   <main>
-    <section class="hero">
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h1 class="section-title">Skontaktuj się z nami</h1>
-          <p class="lead">Masz pytania, chcesz wycenić haft lub rozpocząć współpracę? Wypełnij formularz — odezwiemy się!</p>
-        </div>
-      </div>
-    </section>
-    <section>
-      <form action="https://formspree.io/f/mwkgybje" method="POST">
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="phone">Telefon (opcjonalnie)</label>
-        <input type="tel" id="phone" name="phone">
-
-        <label for="message">Wiadomość</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Wyślij</button>
-      </form>
+    <section class="page">
+      <h1>Kontakt</h1>
+      <p>Masz pytanie? Chcesz złożyć zamówienie lub skonsultować projekt? Skontaktuj się z nami:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a></li>
+        <li><strong>Facebook:</strong> <a href="https://www.facebook.com/nahaftstudio" target="_blank">facebook.com/nahaftstudio</a></li>
+        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/nahaft.studio" target="_blank">instagram.com/nahaft.studio</a></li>
+      </ul>
+      <p>Odpowiadamy szybko i konkretnie – czekamy na Twoją wiadomość!</p>
     </section>
   </main>
-  <footer>
-    <p>© 2025 NA Haft Studio · <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a></p>
-  </footer>
 </body>
 </html>
