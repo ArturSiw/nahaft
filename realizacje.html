@@ -47,7 +47,7 @@
       const img = new Image();
       img.src = path;
       img.onload = () => {
-        imageList.unshift(path);
+        imageList.push(path); // <-- dodajemy od najnowszego do końca listy
         renderGallery();
       };
     }
@@ -60,7 +60,7 @@
         img.alt = `Realizacja ${index + 1}`;
         img.dataset.index = index;
         img.addEventListener("click", () => openLightbox(index));
-        galleryContainer.appendChild(img);
+        galleryContainer.insertBefore(img, galleryContainer.firstChild); // <-- odwróć kolejność wizualną
       });
     }
 
