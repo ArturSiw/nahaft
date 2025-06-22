@@ -1,7 +1,95 @@
+/* === Ogólny reset === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Header === */
+.top-bar {
+  background-color: #e26d5c;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+}
+
+.top-bar a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.header {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.header img {
+  height: 60px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a img {
+  width: 24px;
+  height: 24px;
+}
+
+/* === Main content === */
+main {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+main h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+main p {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 /* === Główna siatka galerii === */
 .preview-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   justify-items: center;
   margin-top: 2rem;
@@ -83,4 +171,18 @@
   opacity: 0.2;
   cursor: default;
   pointer-events: none;
+}
+
+/* === Footer === */
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+}
+
+footer a {
+  color: #ccc;
+  text-decoration: underline;
 }
