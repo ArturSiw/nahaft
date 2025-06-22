@@ -99,6 +99,12 @@
         updateLightbox();
       }
     }
-  </script>
+    document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("active")) return;
+    if (event.key === "Escape") closeLightbox();
+    if (event.key === "ArrowLeft") nextImage();
+    if (event.key === "ArrowRight") prevImage();
+  });
+</script>
 </body>
 </html>
