@@ -89,7 +89,7 @@ main p {
 /* === Główna siatka galerii === */
 .preview-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
   justify-items: center;
   margin-top: 2rem;
