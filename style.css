@@ -200,4 +200,47 @@ body {
 main {
   flex: 1;
 }
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #111;
+  color: #ccc;
+  border-top: 1px solid #333;
+}
+
+.footer-content a {
+  color: #e26d5c;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+  color: #ff8a65;
+}
+
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s ease, filter 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
 
