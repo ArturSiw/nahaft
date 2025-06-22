@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Nagłówek i menu z pliku header.html -->
   <div id="header-placeholder"></div>
   <script>
     fetch("header.html")
@@ -15,8 +16,6 @@
         document.getElementById("header-placeholder").innerHTML = data;
       });
   </script>
-
-  <main>
 
   <main>
     <h2>Nasze realizacje</h2>
@@ -40,7 +39,7 @@
 
   <script>
     const galleryContainer = document.getElementById("gallery");
-    const imageCount = 50; // Zakładamy maks. 50 zdjęć
+    const imageCount = 50;
     const imageList = [];
 
     for (let i = imageCount; i >= 1; i--) {
@@ -83,20 +82,20 @@
 
     function updateLightbox() {
       lightboxImage.src = imageList[currentIndex];
-      prevBtn.classList.toggle("disabled", currentIndex <= 0);
-      nextBtn.classList.toggle("disabled", currentIndex >= imageList.length - 1);
+      prevBtn.classList.toggle("disabled", currentIndex >= imageList.length - 1);
+      nextBtn.classList.toggle("disabled", currentIndex <= 0);
     }
 
     function prevImage() {
-      if (currentIndex > 0) {
-        currentIndex--;
+      if (currentIndex < imageList.length - 1) {
+        currentIndex++;
         updateLightbox();
       }
     }
 
     function nextImage() {
-      if (currentIndex < imageList.length - 1) {
-        currentIndex++;
+      if (currentIndex > 0) {
+        currentIndex--;
         updateLightbox();
       }
     }
