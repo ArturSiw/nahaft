@@ -60,7 +60,7 @@
         img.alt = `Realizacja ${index + 1}`;
         img.dataset.index = index;
         img.addEventListener("click", () => openLightbox(index));
-        galleryContainer.appendChild(img); // <-- odwróć kolejność wizualną
+        galleryContainer.insertBefore(img, galleryContainer.firstChild); // <-- odwróć kolejność wizualną
       });
     }
 
