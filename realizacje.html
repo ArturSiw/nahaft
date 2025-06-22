@@ -6,11 +6,8 @@
   <meta name="description" content="Galeria realizacji NA Haft Studio – hafty komputerowe, logo, imiona, projekty indywidualne i firmowe.">
   <title>Realizacje | NA Haft Studio</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
-
-  <!-- Header -->
   <div id="header-placeholder"></div>
   <script>
     fetch("header.html")
@@ -23,29 +20,76 @@
   <main>
     <section class="preview-section">
       <h1>Nasze realizacje</h1>
-      <p>Zobacz przykłady wykonanych haftów &mdash; od klasycznych logotypów po złożone projekty artystyczne.</p>
-
-      <div class="preview-gallery">
-        <img src="realizacje/1.jpg" alt="Realizacja 1">
-        <img src="realizacje/2.jpg" alt="Realizacja 2">
-        <img src="realizacje/3.jpg" alt="Realizacja 3">
-        <img src="realizacje/4.jpg" alt="Realizacja 4">
-        <img src="realizacje/5.jpg" alt="Realizacja 5">
-        <img src="realizacje/6.jpg" alt="Realizacja 6">
-      </div>
+      <p>Zobacz przykłady wykonanych haftów — od klasycznych logotypów po złożone projekty artystyczne.</p>
+      <div class="preview-gallery" id="gallery"></div>
     </section>
   </main>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="close-btn" onclick="closeLightbox()">&times;</button>
-    <button class="prev-btn" onclick="prevImage()">&#10094;</button>
+    <button class="prev-btn" id="prevBtn" onclick="prevImage()">&#10094;</button>
     <img src="" alt="Podgląd" id="lightbox-img">
-    <button class="next-btn" onclick="nextImage()">&#10095;</button>
+    <button class="next-btn" id="nextBtn" onclick="nextImage()">&#10095;</button>
   </div>
 
-  <footer style="text-align: center; font-size: 0.9em; margin: 2em auto;">
-    &copy; 2025 NA Haft Studio – <a href="mailto:kontakt@nahaft.pl" style="color: #ccc;">kontakt@nahaft.pl</a>
+  <footer>
+    &copy; 2025 NA Haft Studio – <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a>
   </footer>
+
+  <script>
+    const gallery = document.getElementById("gallery");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    let images = [];
+    let currentIndex = 0;
+
+    for (let i = 99; i >= 1; i--) {
+      const img = new Image();
+      img.src = `realizacje/${i}.jpg`;
+      img.alt = `Realizacja ${i}`;
+      img.onload = () => {
+        images.push(img.src);
+        const el = document.createElement("img");
+        el.src = img.src;
+        el.alt = img.alt;
+        el.addEventListener("click", () => openLightbox(images.length - 1));
+        gallery.insertBefore(el, gallery.firstChild);
+      };
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = images[currentIndex];
+      updateButtons();
+      lightbox.classList.add("active");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+    }
+
+    function nextImage() {
+      if (currentIndex < images.length - 1) {
+        currentIndex++;
+        lightboxImg.src = images[currentIndex];
+        updateButtons();
+      }
+    }
+
+    function prevImage() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        lightboxImg.src = images[currentIndex];
+        updateButtons();
+      }
+    }
+
+    function updateButtons() {
+      prevBtn.classList.toggle("disabled", currentIndex === 0);
+      nextBtn.classList.toggle("disabled", currentIndex === images.length - 1);
+    }
+  </script>
 </body>
 </html>
