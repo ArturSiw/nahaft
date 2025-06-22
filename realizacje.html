@@ -1,68 +1,92 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Galeria realizacji NA Haft Studio – hafty komputerowe, logo, imiona, projekty indywidualne i firmowe.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Realizacje | NA Haft Studio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="header-placeholder"></div>
-  <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("header-placeholder").innerHTML = data;
-      });
-  </script>
+  <!-- Pasek kontaktowy -->
+  <div class="top-bar">
+    <span>Kontakt: <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a></span>
+  </div>
+
+  <!-- Nagłówek i menu -->
+  <header class="header">
+    <a href="index.html">
+      <img src="logo.png" alt="Logo NA Haft Studio">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">O nas</a>
+      <a href="oferta.html">Oferta</a>
+      <a href="realizacje.html">Realizacje</a>
+      <a href="kontakt.html">Kontakt</a>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/nahaft" target="_blank"><img src="icons/facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/nahaft.pl" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+        <a href="https://www.tiktok.com/@nahaft" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
+        <a href="https://www.youtube.com/@nahaft" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
+      </div>
+    </nav>
+  </header>
 
   <main>
-    <section class="preview-section">
-      <h1>Nasze realizacje</h1>
-      <p>Zobacz przykłady wykonanych haftów — od klasycznych logotypów po złożone projekty artystyczne.</p>
-      <div class="preview-gallery" id="gallery"></div>
-    </section>
+    <h2>Nasze realizacje</h2>
+    <p>Zobacz przykłady wykonanych haftów — od klasycznych logotypów po złożone projekty artystyczne.</p>
+
+    <div class="preview-gallery" id="gallery">
+      <!-- Zdjęcia będą ładowane dynamicznie -->
+    </div>
   </main>
 
   <div class="lightbox" id="lightbox">
     <button class="close-btn" onclick="closeLightbox()">&times;</button>
-    <button class="prev-btn" id="prevBtn" onclick="prevImage()">&#10094;</button>
-    <img src="" alt="Podgląd" id="lightbox-img">
-    <button class="next-btn" id="nextBtn" onclick="nextImage()">&#10095;</button>
+    <button class="prev-btn" id="prevBtn" onclick="prevImage()">‹</button>
+    <img src="" alt="Podgląd realizacji" id="lightboxImage" />
+    <button class="next-btn" id="nextBtn" onclick="nextImage()">›</button>
   </div>
 
   <footer>
-    &copy; 2025 NA Haft Studio – <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a>
+    &copy; 2025 NA Haft Studio — <a href="mailto:kontakt@nahaft.pl">kontakt@nahaft.pl</a>
   </footer>
 
   <script>
-    const gallery = document.getElementById("gallery");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
-    let images = [];
-    let currentIndex = 0;
+    const galleryContainer = document.getElementById("gallery");
+    const imageCount = 50; // Zakładamy maks. 50 zdjęć
+    const imageList = [];
 
-    for (let i = 99; i >= 1; i--) {
+    for (let i = imageCount; i >= 1; i--) {
+      const path = `realizacje/${i}.jpg`;
       const img = new Image();
-      img.src = `realizacje/${i}.jpg`;
-      img.alt = `Realizacja ${i}`;
+      img.src = path;
       img.onload = () => {
-        images.push(img.src);
-        const el = document.createElement("img");
-        el.src = img.src;
-        el.alt = img.alt;
-        el.addEventListener("click", () => openLightbox(images.length - 1));
-        gallery.insertBefore(el, gallery.firstChild);
+        imageList.unshift(path);
+        renderGallery();
       };
     }
 
+    function renderGallery() {
+      galleryContainer.innerHTML = "";
+      imageList.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `Realizacja ${index + 1}`;
+        img.dataset.index = index;
+        img.addEventListener("click", () => openLightbox(index));
+        galleryContainer.appendChild(img);
+      });
+    }
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let currentIndex = 0;
+
     function openLightbox(index) {
       currentIndex = index;
-      lightboxImg.src = images[currentIndex];
-      updateButtons();
+      updateLightbox();
       lightbox.classList.add("active");
     }
 
@@ -70,25 +94,24 @@
       lightbox.classList.remove("active");
     }
 
-    function nextImage() {
-      if (currentIndex < images.length - 1) {
-        currentIndex++;
-        lightboxImg.src = images[currentIndex];
-        updateButtons();
-      }
+    function updateLightbox() {
+      lightboxImage.src = imageList[currentIndex];
+      prevBtn.classList.toggle("disabled", currentIndex <= 0);
+      nextBtn.classList.toggle("disabled", currentIndex >= imageList.length - 1);
     }
 
     function prevImage() {
       if (currentIndex > 0) {
         currentIndex--;
-        lightboxImg.src = images[currentIndex];
-        updateButtons();
+        updateLightbox();
       }
     }
 
-    function updateButtons() {
-      prevBtn.classList.toggle("disabled", currentIndex === 0);
-      nextBtn.classList.toggle("disabled", currentIndex === images.length - 1);
+    function nextImage() {
+      if (currentIndex < imageList.length - 1) {
+        currentIndex++;
+        updateLightbox();
+      }
     }
   </script>
 </body>
