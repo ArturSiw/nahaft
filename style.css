@@ -226,21 +226,31 @@ main {
 }
 
 .social-icons {
-  margin-top: 15px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background-color: #222;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-icons a:hover {
+  background-color: #444;
+  transform: scale(1.1);
 }
 
 .social-icons img {
-  width: 28px;
-  height: 28px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.2s ease, filter 0.3s;
+  width: 20px;
+  height: 20px;
+  filter: invert(1); /* białe ikony */
 }
-
-.social-icons img:hover {
-  transform: scale(1.15);
-  filter: brightness(1.2);
-}
-
