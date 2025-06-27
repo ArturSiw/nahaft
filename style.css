@@ -253,3 +253,19 @@ main {
   width: 20px;
   height: 20px;
 }
+.about-float-image {
+  float: right;
+  width: 45%;
+  max-width: 320px;
+  margin: 0 0 1em 2em;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .about-float-image {
+    float: none;
+    display: block;
+    margin: 1em auto;
+    width: 90%;
+  }
+}
