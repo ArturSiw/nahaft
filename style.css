@@ -331,3 +331,23 @@ img{display:block;max-width:100%;object-fit:cover}
 .seo-feature-card a{margin-top:auto;padding-top:14px;color:#a14f43;font-size:13px;font-weight:800}
 @media(max-width:860px){.seo-intro{grid-template-columns:1fr;gap:34px}.seo-intro figure img{height:420px}.seo-info-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.seo-intro figure img{height:330px;min-height:0}.seo-intro p,.seo-content p{font-size:14px}.seo-info-grid{grid-template-columns:1fr}.seo-feature-card{padding:23px}.seo-pill-links a,.seo-service-strip a{font-size:12px}.seo-service-strip span{width:100%}}
+
+/* v1.6 — unified terms and PDF */
+.legal-document-full{max-width:980px}
+.legal-document-full h1{max-width:810px;font-size:clamp(30px,3.7vw,47px)}
+.legal-download-row{display:flex;align-items:center;flex-wrap:wrap;gap:13px;margin:18px 0 26px}
+.legal-download-row>span{font-size:12px;color:#788488}
+.legal-download-cta{display:inline-flex;align-items:center;gap:13px;background:#24343a;color:#fff!important;text-decoration:none!important;border-radius:10px;padding:13px 19px;font-size:14px;font-weight:750}
+.legal-download-cta:hover,.legal-download-cta:focus-visible{background:#344b50}
+.legal-toc{background:#f6f3ed;border:1px solid #e7ded4;border-radius:12px;padding:17px 22px;margin:24px 0 34px}
+.legal-toc summary{font-weight:750;font-size:15px;cursor:pointer;color:#24343a}
+.legal-toc ol{columns:2;column-gap:35px;margin:17px 0 0;padding-left:22px}
+.legal-toc li{break-inside:avoid;font-size:12px!important;line-height:1.55!important;margin:0 0 9px}
+.legal-toc li a{color:#596567;text-decoration:none}
+.legal-toc li a:hover{text-decoration:underline;color:#9b473a}
+.legal-paragraph-block{scroll-margin-top:120px}
+.legal-paragraph-block p{margin:0 0 10px;line-height:1.82}
+.legal-paragraph-block h2{margin-top:29px}
+.legal-paragraph-block+.legal-paragraph-block{margin-top:20px}
+.legal-anchor-alias{position:relative;display:block;top:-115px;visibility:hidden}
+@media(max-width:650px){.legal-toc ol{columns:1}.legal-download-cta{width:100%;justify-content:space-between}.legal-document-full h1{font-size:clamp(28px,7.8vw,40px)}}
